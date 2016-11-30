@@ -38,10 +38,8 @@ app.get('/api/highScore', function (req, res, next) {
 });
 
 // models
-if (!process.env.DATABASE_URL) {
-  process.env.DATABASE_URL = 'postgres://localhost:5432/server-roulette';
-}
-const db = new Sequelize(process.env.DATABASE_URL);
+const databaseURI = process.env.DATABASE_URL || 'postgres://localhost:5432/server-roulette';
+const db = new Sequelize(databaseURI);
 const ClickRecord = db.define('click_record', {
   didCrash: Sequelize.BOOLEAN,
   username: {
@@ -76,7 +74,7 @@ const ClickRecord = db.define('click_record', {
 });
 
 // startup server
-const port = 3000;
+const port = process.env.PORT || 3000;
 db.sync()
 .then(function () {
   return new Promise(function (resolve, reject) {
