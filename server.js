@@ -5,9 +5,6 @@ const Sequelize = require('sequelize');
 
 // routes
 const app = express();
-console.log('-----');
-console.log(process.env);
-console.log('-----');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
