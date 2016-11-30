@@ -22,7 +22,6 @@ function submitClick () {
     if (response.status === 500) {
       resultElem.innerText = 'You crashed the server!';
       currentScore = 0;
-
     } else {    
       resultElem.innerText = 'Success';
       currentScore++;
@@ -45,7 +44,7 @@ rouletteButton.onclick = function () {
   .then(updateHighScore);
 };
 
-usernameInputElem.onkeyup = function () {
+usernameInputElem.oninput = function () {
   if (usernameInputElem.value.length === 0) {
     gameElem.style.visibility = 'hidden';
   } else {
