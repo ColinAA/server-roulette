@@ -23,6 +23,5 @@
     "pg": "^6.1.0",
     "sequelize": "^3.27.0",
     "volleyball": "^1.4.1"
-  },
-  "devDependencies": {}
+  }
 }
