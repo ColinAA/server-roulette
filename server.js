@@ -21,7 +21,11 @@ app.post('/api/click', function (req, res, next) {
   .then(function () {
     if (isAboutToCrash) {
       res.status(500).end();
-      process.exit(1);
+      if (process.env.NODE_ENV === 'production') {
+        console.error('¡OUCH!');
+      } else {
+        process.exit(1);
+      }
     } else {
       res.status(201).end();
     }
