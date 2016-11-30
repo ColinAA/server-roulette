@@ -42,7 +42,7 @@ const db = new Sequelize('postgres://localhost:5432/server-roulette');
 const ClickRecord = db.define('click_record', {
   didCrash: Sequelize.BOOLEAN,
   username: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true
